@@ -1,0 +1,37 @@
+/* Configuración general */
+body {
+    font-family: 'Optima', sans-serif; /* Texto principal */
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Títulos y Subtítulos */
+h1, h2, h3 {
+    font-family: 'Garamond', serif; /* Fuente elegante */
+    background-color: #66e461;     /* Tu color verde */
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;        /* Para que el fondo no ocupe todo el ancho */
+    color: #1a4d18;               /* Un verde oscuro para contraste */
+}
+
+/* Elementos destacados */
+strong, .destacado {
+    color: #e6a719;               /* Versión más oscura de tu amarillo para lectura */
+    background-color: #ffd885;    /* Tu amarillo complementario */
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+/* Estilo del contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-radius: 12px;
+}
