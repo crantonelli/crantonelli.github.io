@@ -20,7 +20,7 @@ h1, h2, h3 {
 
 /* Elementos destacados */
 strong, .destacado {
-    color: #e6a719;               /* Versión más oscura de tu amarillo para lectura */
+    color: #000000;               /* Versión más oscura de tu amarillo para lectura */
     background-color: #ffd885;    /* Tu amarillo complementario */
     padding: 2px 5px;
     border-radius: 4px;
