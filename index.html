@@ -53,11 +53,19 @@
         .highlight-title { background-color: var(--verde-principal); padding: 5px 15px; border-radius: 5px; }
 
         /* Hero / Focus */
-        .hero { 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/Fondo.JPG'); 
-            background-size: cover; background-position: center; background-attachment: fixed;
-            color: white; padding: 80px 0; text-align: center;
-        }
+       .hero { 
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/Fondo.jpg'); 
+        background-size: cover; 
+        background-position: center; 
+        background-attachment: fixed;
+        color: white; 
+        padding: 100px 0; 
+        text-align: center;
+        min-height: 400px; /* Esto asegura que el espacio exista */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
         .hero p { max-width: 800px; margin: 0 auto; font-size: 1.5rem; font-style: italic; }
 
         /* Grid de Investigación */
@@ -113,7 +121,7 @@
             <div class="card">
                 <img src="images/Campo.jpg" class="card-img">
                 <div class="card-content">
-                    <h3>Seed predation</h3>
+                    <h3>Ecosystem services</h3>
                     <p>Weed seed predation by rodents in agroecosystems of central Argentina.</p>
                 </div>
             </div>
