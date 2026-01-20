@@ -97,30 +97,53 @@
         }
 
         .footer-title {
-            font-size: 2.8rem;
-            margin-bottom: 40px;
+            font-size: 2rem;
+            margin-bottom: 30px;
             color: white !important;
         }
 
-        /* SVG Icon Styling */
+        /* Contenedor de los links */
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Separación exacta de 20px entre iconos */
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+/* Regla para los links (el "cuadrado" que contiene al icono) */
         .social-icon {
-            display: inline-block;
-            font-size: 5rem;
-            width: 50px;  /* Icon Container Width */
-            height: 50px; /* Icon Container Height */
-            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;  /* Tamaño exacto del contenedor */
+            height: 40px; /* Tamaño exacto del contenedor */
+            text-decoration: none;
             transition: all 0.3s ease;
         }
 
-        .social-icon svg {
-            width: 100%;
-            height: 100%;
-            fill: currentColor; /* Inherits the white color */
+/* Para los iconos de Font Awesome */
+        .social-icon i {
+            font-size: 40px; /* Ajusta el tamaño de la fuente a 40px */
+            color: white;
+            line-height: 40px;
         }
 
-        .social-icon:hover {
-            color: var(--verde-principal); /* Changes to your theme green on hover */
-            transform: translateY(-10px);
+/* Para los iconos SVG directos */
+        .social-icon svg {
+            width: 40px;  /* Ajusta el ancho del SVG a 40px */
+            height: 40px; /* Ajusta el alto del SVG a 40px */
+            display: block;
+        }
+
+/* Efecto Hover para ambos */
+        .social-icon:hover i,
+        .social-icon:hover svg,
+        .social-icon:hover path {
+            fill: var(--verde-principal) !important;
+            color: var(--verde-principal) !important;
+            transform: translateY(-5px);
         }
 
         .footer-text {
