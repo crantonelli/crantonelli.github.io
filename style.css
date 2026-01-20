@@ -39,14 +39,14 @@ strong, .destacado {
 /* Estilo íconos link */
 .social-icon {
             color: white;
-            font-size: 5rem; /* Tamaño de los iconos */
+            font-size: 4rem; /* Tamaño de los iconos */
             transition: all 0.3s ease;
             text-decoration: none;
         }
 
         .social-icon:hover {
-            color: var(--verde-principal); /* Cambia al verde que definimos */
-            transform: translateY(-5px); /* Pequeño salto hacia arriba */
+            color: var(#ffd885); /* Cambia al verde que definimos */
+            transform: translateY(-7px); /* Pequeño salto hacia arriba */
         }
 
         footer {
