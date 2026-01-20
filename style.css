@@ -39,7 +39,7 @@ strong, .destacado {
 /* Estilo íconos link */
 .social-icon {
             color: white;
-            font-size: 2.5rem; /* Tamaño de los iconos */
+            font-size: 5rem; /* Tamaño de los iconos */
             transition: all 0.3s ease;
             text-decoration: none;
         }
