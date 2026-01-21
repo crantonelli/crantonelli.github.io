@@ -100,6 +100,15 @@
 }
 
 .dot.active { background: var(--verde-principal); transform: scale(1.2); }
+
+.project-gif {
+    width: 100%;
+    height: 400px; /* Mantenemos la altura que tenía el slider */
+    object-fit: cover; /* Esto evita que el GIF se deforme si no tiene la proporción exacta */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: block;
+}
         
         footer { background: #1a1a1a; color: white; padding: 40px 0; text-align: center; }
 
@@ -127,7 +136,8 @@
                 <div class="project-image">
                     <div class="slider-container" id="slider-ecosystem">
                         <div class="slider-wrapper">
-                            <img src="images/Campo1.jpg" class="slide active">
+                            <img src="images/Campo.jpg" class="slide active">
+                            <img src="images/Campo1.jpg" class="slide">
                             <img src="images/Campo2.jpg" class="slide">
                             <img src="images/Campo3.jpg" class="slide">
                         </div>
@@ -156,7 +166,7 @@
         <section id="foraging-preferences" class="project-detail">
             <div class="container project-flex reverse">
                 <div class="project-image">
-                    <img src="images/Bioterio.jpg" alt="Lab Research">
+                    <img src="images/AA694.gif" alt="Rodent behavior" class="project-gif">
                 </div>
                 <div class="project-text">
                     <span class="project-tag">Foraging preferences</span>
@@ -172,8 +182,24 @@
         <section id="environmental-change" class="project-detail">
             <div class="container project-flex">
                 <div class="project-image">
-                    <img src="images/Mus_city.png" alt="Urban Ecology">
+                    <div class="slider-container" id="slider-ecosystem">
+                        <div class="slider-wrapper">
+                            <img src="images/Mus_city0.jpeg" class="slide active">
+                            <img src="images/Mus_city.png" class="slide">
+                            <img src="images/Mus_city1.jpeg" class="slide">
+                            <img src="images/Mus_city2.png" class="slide">
+                        </div>
+        
+                    <button class="prev" onclick="changeSlide('slider-ecosystem', -1)">&#10094;</button>
+                    <button class="next" onclick="changeSlide('slider-ecosystem', 1)">&#10095;</button>
+        
+                    <div class="dots-container">
+                        <span class="dot active" onclick="setSlide('slider-ecosystem', 0)"></span>
+                        <span class="dot" onclick="setSlide('slider-ecosystem', 1)"></span>
+                        <span class="dot" onclick="setSlide('slider-ecosystem', 2)"></span>
+                    </div>
                 </div>
+            </div>
                 <div class="project-text">
                     <span class="project-tag">Environmental change</span>
                     <h2>Urban occupancy of <i>Mus musculus</i></h2>
