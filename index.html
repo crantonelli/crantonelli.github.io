@@ -53,7 +53,7 @@
         }
         .profile-img { 
             width: 300px; height: 300px; border-radius: 50%; 
-            object-fit: cover; border: 3px solid var(--verde-principal);
+            object-fit: cover; border: 5px solid var(--verde-principal);
         }
         .profile-info { flex: 1; }
         .profile-name { font-size: 3.5rem; margin-bottom: 0; line-height: 1; }
@@ -83,20 +83,36 @@
         .hero p { max-width: 800px; margin: 0 auto; font-size: 1.5rem; font-style: italic; }
 
         /* Grid de Investigación */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 40px 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; margin: 40px 0; }
         .card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .card-img { width: 100%; height: 200px; object-fit: cover; }
+        .card-img { width: 100%; height: 250px; object-fit: cover; }
         .card-content { padding: 20px; }
         .card-content h3 { background: var(--verde-principal); display: inline-block; padding: 2px 10px; border-radius: 4px; margin-bottom: 10px; }
 
         /* Publicaciones Mejoradas */
-        .publications-list { margin-top: 40px; }
+        /* Centrar el título y el contenedor general */
+        #publications {
+            text-align: center; /* Centra el título h2 y el botón */
+        }
+
+        /* Ajustar la lista de publicaciones */
+        .publications-list {
+            margin: 40px auto;
+            max-width: 800px; /* Limitamos el ancho para que el centrado sea notable */
+            text-align: left;  /* El texto dentro de la publicación sigue alineado a la izquierda */
+            }
         .pub-entry { 
             display: flex; 
+            justify-content: center; /* Centra el contenido si es más corto */
             gap: 20px; 
             margin-bottom: 30px; 
             padding-bottom: 20px;
             border-bottom: 1px solid #eee;
+        }
+        /* Asegurar que el contenido no se pegue al borde en móviles */
+        .pub-content {
+            flex: 1;
+            max-width: 700px;
         }
         .pub-icon { color: var(--verde-principal); font-size: 1.8rem; }
         .pub-content p { margin-bottom: 5px; }
@@ -121,12 +137,12 @@
             color: var(--texto-negro);
             transition: color 0.3s ease, padding-left 0.3s ease;
             display: inline-block; /* Permite el movimiento lateral */
-}
+        }
 
         a:hover .card-content strong {
             color: var(--verde-principal); /* Cambia a tu verde */
             padding-left: 10px; /* Se desplaza un poquito a la derecha */
-}
+        }
 
         
         /* Footer */
@@ -229,8 +245,8 @@
         </div>
     </section>
 
-    <section id="publications" class="container" style="padding: 40px 0;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 40px;">Selected Publications</h2>
+    <section id="publications" class="container" style="padding: 20px 0;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 20px;">Selected Publications</h2>
         
         <div class="publications-list">
             <div class="pub-entry">
