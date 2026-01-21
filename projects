@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Projects - Cecilia R. Antonelli</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --verde-principal: #66e461; --texto-negro: #000000; }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Lato', sans-serif; line-height: 1.6; color: var(--texto-negro); }
+        h1, h2, h3, .logo { font-family: 'Aref Ruqaa', serif; }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header (Igual al principal) */
+        header { background: white; padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .nav-links { display: flex; list-style: none; gap: 1.5rem; }
+        .nav-links a { color: var(--texto-negro); text-decoration: none; font-weight: bold; }
+
+        /* Estilo de Secciones de Proyecto */
+        .project-detail { padding: 100px 0; border-bottom: 1px solid #eee; }
+        .project-detail:last-child { border-bottom: none; }
+        
+        .project-flex { display: flex; align-items: center; gap: 50px; }
+        .project-flex.reverse { flex-direction: row-reverse; }
+
+        .project-text { flex: 1; }
+        .project-image { flex: 1; }
+        .project-image img { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        .project-tag { background: var(--verde-principal); padding: 5px 15px; border-radius: 5px; font-weight: bold; display: inline-block; margin-bottom: 15px; }
+        .results-box { background: #f4fcf4; padding: 20px; border-left: 5px solid var(--verde-principal); margin-top: 20px; }
+        
+        footer { background: #1a1a1a; color: white; padding: 40px 0; text-align: center; }
+
+        @media (max-width: 768px) {
+            .project-flex, .project-flex.reverse { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo"><strong>CR</strong> Antonelli</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="full_list.html">Publications</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="ecosystem-services" class="project-detail">
+            <div class="container project-flex">
+                <div class="project-image">
+                    <img src="images/Campo.jpg" alt="Field Work">
+                </div>
+                <div class="project-text">
+                    <span class="project-tag">Ecosystem Services</span>
+                    <h2>Weed seed predation by rodents</h2>
+                    <p>This project explores how native and exotic rodents contribute to weed control in agroecosystems of central Argentina. We focus on herbicide-resistant species and how landscape configuration affects predation rates.</p>
+                    <div class="results-box">
+                        <strong>Key Results:</strong> Predation is higher in field borders compared to the center, suggesting that maintaining natural vegetation can enhance this ecosystem service.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="foraging-preferences" class="project-detail">
+            <div class="container project-flex reverse">
+                <div class="project-image">
+                    <img src="images/Bioterio.jpg" alt="Lab Research">
+                </div>
+                <div class="project-text">
+                    <span class="project-tag">Foraging preferences</span>
+                    <h2>Seed traits and rodent choices</h2>
+                    <p>By conducting controlled experiments, we analyze how seed size, nutritional content, and chemical defenses influence the choices of different rodent species.</p>
+                    <div class="results-box">
+                        <strong>Key Results:</strong> Seed size is a primary driver for selection, but high protein content can override size preferences in certain seasonal contexts.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="environmental-change" class="project-detail">
+            <div class="container project-flex">
+                <div class="project-image">
+                    <img src="images/Mus_city.png" alt="Urban Ecology">
+                </div>
+                <div class="project-text">
+                    <span class="project-tag">Environmental change</span>
+                    <h2>Urban occupancy of <i>Mus musculus</i></h2>
+                    <p>We modeled the presence of the house mouse in expanding cities, considering urban growth patterns and socio-environmental variables.</p>
+                    <div class="results-box">
+                        <strong>Key Results:</strong> House mouse occupancy is strongly linked to the age of the urban sector and the density of built-up areas.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Cecilia R. Antonelli — Research Detail</p>
+    </footer>
+
+</body>
+</html>
