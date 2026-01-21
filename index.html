@@ -52,7 +52,7 @@
             text-align: left;
         }
         .profile-img { 
-            width: 200px; height: 200px; border-radius: 50%; 
+            width: 250px; height: 250px; border-radius: 30%; 
             object-fit: cover; border: 5px solid var(--verde-principal);
         }
         .profile-info { flex: 1; }
@@ -116,6 +116,19 @@
         }
         .btn-full-list:hover { background: var(--verde-principal); }
 
+        /* 2. Resaltado del "Read more" */
+        .card-content strong {
+            color: var(--texto-negro);
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            display: inline-block; /* Permite el movimiento lateral */
+}
+
+        a:hover .card-content strong {
+            color: var(--verde-principal); /* Cambia a tu verde */
+            padding-left: 10px; /* Se desplaza un poquito a la derecha */
+}
+
+        
         /* Footer */
         .footer-hero { 
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/Fondo.jpg'); 
@@ -179,6 +192,7 @@
     <section id="research" class="container" style="padding: 80px 0;">
         <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 40px;">Research projects</h2>
         <div class="grid">
+            
             <a href="projects.html#ecosystem-services" style="text-decoration: none; color: inherit;">
                 <div class="card">
                     <img src="images/Campo.jpg" class="card-img">
@@ -207,9 +221,11 @@
                     <div class="card-content">
                         <h3>Environmental change</h3>
                         <p>Modelling the occupancy of Mus musculus in growing urban environments.</p>
+                        <p><strong>Read more →</strong></p>
                     </div>
                 </div>
             </a>
+            
         </div>
     </section>
 
