@@ -15,10 +15,11 @@
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
         /* Header (Igual al principal) */
-        header { background: white; padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        header { background: #ddf8d7; padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         nav { display: flex; justify-content: space-between; align-items: center; }
         .nav-links { display: flex; list-style: none; gap: 1.5rem; }
         .nav-links a { color: var(--texto-negro); text-decoration: none; font-weight: bold; }
+        .logo a { color: var(--texto-negro); text-decoration: none; font-weight: bold; }
 
         /* Estilo de Secciones de Proyecto */
         .project-detail { padding: 100px 0; border-bottom: 1px solid #eee; }
@@ -119,13 +120,14 @@
 </head>
 <body>
 
-    <header>
+   <header>
         <nav class="container">
-            <div class="logo"><strong>CR</strong> Antonelli</div>
+            <div class="logo"><a href="index.html"><strong>CR</strong> Antonelli</div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Research</a></li>
                 <li><a href="full_list.html">Publications</a></li>
+                <li><a href="about.html">About me</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
