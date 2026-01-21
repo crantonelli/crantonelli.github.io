@@ -31,7 +31,7 @@
         
         /* Header Nav */
         header { 
-            background: white; 
+            background: --verde-principal; 
             padding: 1rem 0; 
             position: fixed; 
             width: 100%; 
@@ -89,6 +89,23 @@
         .card-content { padding: 20px; }
         .card-content h3 { background: var(--verde-principal); display: inline-block; padding: 2px 10px; border-radius: 4px; margin-bottom: 10px; }
 
+        /* Reduce el padding de la sección Research (antes estaba en 80px) */
+        #research {
+            padding: 60px 0 20px !important; 
+        }
+
+        /* Reduce el padding superior de Publications (antes estaba en 40px) */
+        #publications {
+            padding: 20px 0 40px !important;
+            text-align: center;
+        }
+
+        /* Reduce el margen superior de la lista para que pegue más al título */
+        .publications-list {
+            margin-top: 20px; /* Reducido de 40px */
+            margin-bottom: 20px;
+        }
+        
         /* Publicaciones Mejoradas */
         /* Centrar el título y el contenedor general */
         #publications {
