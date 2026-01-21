@@ -31,8 +31,75 @@
         .project-image { flex: 1; }
         .project-image img { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
-        .project-tag { background: var(--verde-principal); padding: 5px 15px; border-radius: 5px; font-weight: bold; display: inline-block; margin-bottom: 15px; }
+        .project-tag { background:#ddf8d7; padding: 5px 15px; border-radius: 5px; font-weight: bold; display: inline-block; margin-bottom: 15px; }
         .results-box { background: #f4fcf4; padding: 20px; border-left: 5px solid var(--verde-principal); margin-top: 20px; }
+
+        /* Contenedor del Slider */
+.slider-container {
+    position: relative;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.slider-wrapper {
+    position: relative;
+    height: 400px; /* Ajusta según prefieras */
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* Botones Navegación */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.3);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.prev:hover, .next:hover { background: var(--verde-principal); color: black; }
+.prev { left: 0; border-radius: 0 5px 5px 0; }
+.next { right: 0; border-radius: 5px 0 0 5px; }
+
+/* Puntitos */
+.dots-container {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active { background: var(--verde-principal); transform: scale(1.2); }
         
         footer { background: #1a1a1a; color: white; padding: 40px 0; text-align: center; }
 
@@ -58,8 +125,23 @@
         <section id="ecosystem-services" class="project-detail">
             <div class="container project-flex">
                 <div class="project-image">
-                    <img src="images/Campo.jpg" alt="Field Work">
+                    <div class="slider-container" id="slider-ecosystem">
+                        <div class="slider-wrapper">
+                            <img src="images/Campo1.jpg" class="slide active">
+                            <img src="images/Campo2.jpg" class="slide">
+                            <img src="images/Campo3.jpg" class="slide">
+                        </div>
+        
+                    <button class="prev" onclick="changeSlide('slider-ecosystem', -1)">&#10094;</button>
+                    <button class="next" onclick="changeSlide('slider-ecosystem', 1)">&#10095;</button>
+        
+                    <div class="dots-container">
+                        <span class="dot active" onclick="setSlide('slider-ecosystem', 0)"></span>
+                        <span class="dot" onclick="setSlide('slider-ecosystem', 1)"></span>
+                        <span class="dot" onclick="setSlide('slider-ecosystem', 2)"></span>
+                    </div>
                 </div>
+            </div>
                 <div class="project-text">
                     <span class="project-tag">Ecosystem Services</span>
                     <h2>Weed seed predation by rodents</h2>
@@ -107,6 +189,48 @@
     <footer>
         <p>Cecilia R. Antonelli — Research Detail</p>
     </footer>
+    
+<script>
+    function updateSlider(containerId, index) {
+        const container = document.getElementById(containerId);
+        const slides = container.querySelectorAll('.slide');
+        const dots = container.querySelectorAll('.dot');
+        
+        // Manejo de fin de lista
+        let currentIndex = index;
+        if (index >= slides.length) currentIndex = 0;
+        if (index < 0) currentIndex = slides.length - 1;
 
+        // Quitar clases activas
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+
+        // Activar el nuevo
+        slides[currentIndex].classList.add('active');
+        dots[currentIndex].classList.add('active');
+        
+        // Guardar el índice actual en el elemento
+        container.dataset.currentIndex = currentIndex;
+    }
+
+    function changeSlide(containerId, step) {
+        const container = document.getElementById(containerId);
+        let idx = parseInt(container.dataset.currentIndex || 0);
+        updateSlider(containerId, idx + step);
+    }
+
+    function setSlide(containerId, index) {
+        updateSlider(containerId, index);
+    }
+
+    // Auto-rotación para todos los sliders
+    document.querySelectorAll('.slider-container').forEach(slider => {
+        slider.dataset.currentIndex = 0;
+        setInterval(() => {
+            changeSlide(slider.id, 1);
+        }, 5000); // Cambia cada 5 segundos
+    });
+</script>
+    
 </body>
 </html>
