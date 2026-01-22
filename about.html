@@ -9,8 +9,10 @@
     <style>
         :root { 
             --verde-principal: #66e461; 
+            --verde-oscuro: #4caf50;
             --texto-negro: #000000; 
             --gris-fondo: #f9f9f9;
+            --fondo-carrusel: #2c3e50;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Lato', sans-serif; line-height: 1.6; color: var(--texto-negro); background-color: #fff; }
@@ -18,62 +20,190 @@
         
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
+        /* Header Styles */
         header { background: #ddf8d7; padding: 1rem 0; position: fixed;  width: 100%;  top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo a { color: var(--texto-negro); text-decoration: none; font-weight: bold; }
+        .logo a { color: var(--texto-negro); text-decoration: none; font-weight: bold; font-size: 1.2rem; }
         .nav-links { display: flex; list-style: none; gap: 1.5rem; }
-        .nav-links a { color: var(--texto-negro); text-decoration: none; font-weight: bold; }
+        .nav-links a { color: var(--texto-negro); text-decoration: none; font-weight: bold; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--verde-oscuro); }
 
-        .about-grid { 
-            display: grid; 
-            grid-template-columns: 2fr 1fr; 
-            gap: 50px; 
-            padding: 60px 0; 
-        }
-
-        /* Estilo CV */
-        .cv-section { margin-bottom: 40px; }
-        .section-title { 
-            font-size: 2rem; 
-            border-bottom: 3px solid var(--verde-principal); 
-            display: inline-block;
-            margin-bottom: 25px;
-        }
-        .cv-item { margin-bottom: 20px; position: relative; padding-left: 20px; }
-        .cv-item::before { 
-            content: ''; position: absolute; left: 0; top: 10px; 
-            width: 8px; height: 8px; background: var(--verde-principal); border-radius: 50%; 
-        }
-        .cv-date { font-weight: bold; color: #666; font-size: 0.9rem; }
-        .cv-content h4 { font-size: 1.2rem; margin: 5px 0; }
-
-        /* Sidebar Datos Curiosos */
-        .sidebar { 
-            background: var(--gris-fondo); 
-            padding: 30px; 
-            border-radius: 15px; 
-            height: fit-content;
-            border-top: 5px solid var(--verde-principal);
-        }
-        .sidebar h3 { margin-bottom: 20px; font-size: 1.6rem; }
-        .fun-fact { margin-bottom: 20px; display: flex; gap: 15px; align-items: flex-start; }
-        .fun-fact i { color: var(--verde-principal); font-size: 1.2rem; margin-top: 5px; }
+        /* Main Layout */
+        main { padding-top: 100px; padding-bottom: 60px; }
         
-        .about-img { 
-            width: 100%; border-radius: 10px; margin-bottom: 20px; 
+        .aboutme-header { margin-bottom: 30px; }
+        .back-home { text-decoration: none; color: #555; display: inline-flex; align-items: center; gap: 5px; font-weight: bold; }
+        .back-home:hover { color: var(--verde-principal); }
+
+        /* Profile Header Styles */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+            background: #fdfdfd;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--verde-principal);
+        }
+
+        .headshot-container {
+            flex-shrink: 0;
+            width: 220px;
+            height: 220px;
+        }
+
+        .headshot-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--verde-principal);
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        footer { background: #1a1a1a; color: white; padding: 40px 0; text-align: center; }
+        .profile-text h2 { font-size: 2.5rem; margin-bottom: 15px; line-height: 1.1; }
+        .profile-bio { font-size: 1.1rem; color: #444; max-width: 600px; }
 
+        /* CV Styles */
+        .cv-wrapper { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        .cv-section { margin-bottom: 50px; }
+        
+        .section-title { 
+            font-size: 1.8rem; 
+            border-bottom: 2px solid var(--verde-principal); 
+            display: inline-block;
+            margin-bottom: 30px;
+            padding-right: 20px;
+        }
+
+        .cv-item { margin-bottom: 25px; position: relative; padding-left: 25px; border-left: 2px solid #eee; }
+        .cv-item::before { content: ''; position: absolute; left: -5px; top: 8px; width: 8px; height: 8px; background: var(--verde-principal); border-radius: 50%; }
+        .cv-date { font-weight: 700; color: var(--verde-oscuro); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 4px; }
+        .cv-content h4 { font-size: 1.2rem; margin: 0 0 5px 0; font-weight: 700; }
+        .cv-content h5 { font-size: 1rem; font-weight: 400; font-style: italic; color: #555; margin-bottom: 5px; }
+        .cv-content p, .cv-content li { font-size: 0.95rem; color: #444; margin-bottom: 5px; }
+        .cv-content ul { list-style-type: disc; margin-left: 20px; }
+        .languages-grid { display: flex; gap: 20px; flex-wrap: wrap; }
+        .lang-tag { background: #eee; padding: 5px 15px; border-radius: 20px; font-weight: bold; }
+
+        /* --- NEW FUN FACTS LAYOUT --- */
+        .fun-facts-container {
+            background-color: var(--fondo-carrusel);
+            color: white;
+            padding: 60px 0;
+            margin-top: 50px;
+        }
+
+        .facts-grid {
+            display: grid;
+            /* 1.5fr for text, 1fr for image (Text is larger, Image is smaller than half) */
+            grid-template-columns: 1.5fr 1fr; 
+            gap: 50px;
+            align-items: center;
+        }
+
+        .facts-list h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .facts-list ul {
+            list-style: none;
+        }
+
+        .facts-list li {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .facts-list li i {
+            color: var(--verde-principal);
+            font-size: 1.3rem;
+            margin-top: 5px; /* Align icon with first line of text */
+        }
+
+        /* Compact Carousel Styles */
+        .carousel {
+            position: relative;
+            width: 100%; /* Takes full width of the right column */
+            overflow: hidden;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .carousel-inner { display: flex; transition: transform 0.5s ease-in-out; }
+        .carousel-item { min-width: 100%; display: flex; flex-direction: column; align-items: center; padding: 0; }
+        
+        .carousel-img-container { 
+            width: 100%; 
+            height: 250px; /* Reduced height to look good on the right side */
+            overflow: hidden; 
+        }
+        .carousel-img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+        .carousel-caption {
+            padding: 15px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 40%; /* Adjusted slightly up because caption is smaller */
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: white; border: none; padding: 10px; cursor: pointer;
+            border-radius: 50%; font-size: 1rem; transition: 0.3s;
+        }
+        .carousel-btn:hover { background: var(--verde-principal); color: black; }
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+
+        /* Footer */
+        .footer-hero { 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/Fondo.jpg'); 
+            background-size: cover; background-position: center; background-attachment: fixed;
+            color: white; padding: 80px 0; text-align: center; margin-top: 60px;
+        }
+        .footer-title { font-size: 2.5rem; margin-bottom: 30px; color: white !important; }
+
+        .contact-links { display: flex; justify-content: center; align-items: center; gap: 30px; margin-top: 30px; }
+        .social-icon { 
+            color: white; 
+            text-decoration: none; 
+            transition: 0.3s; 
+            display: flex; 
+            align-items: center; 
+        }
+        .social-icon i, .social-icon svg { width: 40px; height: 40px; font-size: 40px; display: block; fill: white; }
+        .social-icon:hover { color: var(--verde-principal); transform: translateY(-5px); }
+        .social-icon:hover svg { fill: var(--verde-principal); }
+
+        .footer-text { margin-top: 50px; opacity: 0.8; font-size: 1.1rem; }
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .about-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .profile-section { flex-direction: column; text-align: center; gap: 20px; }
+            .headshot-container { width: 180px; height: 180px; margin: 0 auto; }
+            
+            /* Stack facts and carousel on mobile */
+            .facts-grid { grid-template-columns: 1fr; gap: 30px; }
+            .carousel-img-container { height: 300px; } /* Taller image on mobile */
         }
     </style>
 </head>
 <body>
 
-       <header>
+    <header>
         <nav class="container">
             <div class="logo"><a href="index.html"><strong>CR</strong> Antonelli</a></div>
             <ul class="nav-links">
@@ -85,89 +215,266 @@
         </nav>
     </header>
 
-
-    <main class="container">
-         
-        <div class="aboutme-header">
-            <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-        </div>
-
-        <div class="about-grid">
-            
-            <div class="main-cv">
-                <h1 style="font-size: 3rem; margin-bottom: 10px;">About Me</h1>
-                <p style="font-size: 1.2rem; color: #555; margin-bottom: 40px;">
-                    Biologist passionate about small mammal ecology and how they interact with their ever-changing environments.
-                </p>
-
-                <section class="cv-section">
-                    <h2 class="section-title">Education</h2>
-                    <div class="cv-item">
-                        <span class="cv-date">2019 — 2024</span>
-                        <div class="cv-content">
-                            <h4>Ph.D. in Biological Sciences</h4>
-                            <p>National University of Río Cuarto (UNRC). Thesis on weed seed predation by rodents in agroecosystems.</p>
-                        </div>
-                    </div>
-                    <div class="cv-item">
-                        <span class="cv-date">2013 — 2018</span>
-                        <div class="cv-content">
-                            <h4>Bachelor's Degree in Biological Sciences</h4>
-                            <p>National University of Río Cuarto (UNRC).</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="cv-section">
-                    <h2 class="section-title">Fellowships & Awards</h2>
-                    <div class="cv-item">
-                        <span class="cv-date">2024 — Present</span>
-                        <div class="cv-content">
-                            <h4>Postdoctoral Fellowship</h4>
-                            <p>CONICET. Project focus: Behavior and plant-animal interactions.</p>
-                        </div>
-                    </div>
-                    <div class="cv-item">
-                        <span class="cv-date">2019 — 2024</span>
-                        <div class="cv-content">
-                            <h4>Doctoral Fellowship</h4>
-                            <p>CONICET, Argentina.</p>
-                        </div>
-                    </div>
-                </section>
+    <main>
+        <div class="container">
+            <div class="aboutme-header">
+                <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
             </div>
 
-            <aside class="sidebar">
-                <img src="images/Campo3.jpg" alt="Cecilia in the field" class="about-img">
-                <h3>Fun Facts 🌿</h3>
+            <h1 style="font-size: 3.5rem; margin-bottom: 30px; text-align: left;">Curriculum Vitae</h1>
+            
+            <div class="profile-section">
+                <div class="headshot-container">
+                    <img src="Headshot.JPG" alt="Cecilia R. Antonelli" class="headshot-img">
+                </div>
+                <div class="profile-text">
+                    <h2>Cecilia R. Antonelli</h2>
+                    <p class="profile-bio">
+                        I'm a biologist specialised in animal ecology, behaviour, and human-wildlife interactions. 
+                        I'm passionate about integrating ecology with spatial tools (GIS) and advanced statistical 
+                        modelling to guide sustainable land management.
+                    </p>
+                </div>
+            </div>
+
+            <div class="cv-wrapper">
                 
-                <div class="fun-fact">
-                    <i class="fas fa-paw"></i>
-                    <p>I have spent countless nights in the field tracking rodents under the stars.</p>
-                </div>
+                <section class="cv-section">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+                    
+                    <div class="cv-item">
+                        <span class="cv-date">Sept 2020 – Present</span>
+                        <div class="cv-content">
+                            <h4>Doctoral Researcher</h4>
+                            <h5>Fund for Scientific and Technological Research (FONCYT), Argentina</h5>
+                            <p><strong>2023-Present:</strong> PICT Project 321/21 ‘Ecological functions and small mammals in agricultural landscapes with varying complexity: control of weed seeds and insect pests’</p>
+                            <ul>
+                                <li>Aided in designing sampling protocols and collected field data on insect pest control and pollination.</li>
+                            </ul>
+                            <p style="margin-top: 10px;"><strong>2020-2022:</strong> PICT Project 1324/18 ‘Are rodents predators or dispersers of weed seeds in agroecosystems in central Argentina?’</p>
+                            <ul>
+                                <li>Investigated weed seed removal by rodents in agricultural landscapes.</li>
+                                <li>Analysed rodents foraging preferences and determined seed fate following rodent consumption.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <div class="fun-fact">
-                    <i class="fas fa-microscope"></i>
-                    <p>I can identify most weed seeds just by their shape and texture.</p>
-                </div>
+                    <div class="cv-item">
+                        <span class="cv-date">May 2017 – Aug 2020</span>
+                        <div class="cv-content">
+                            <h4>Research Assistant</h4>
+                            <h5>National University of Río Cuarto, Argentina</h5>
+                            <ul>
+                                <li>Conducted and collaborated in multiple projects researching rodent population dynamics, large herbivore behaviour, and forest insect invasions.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
 
-                <div class="fun-fact">
-                    <i class="fas fa-seedling"></i>
-                    <p>Outside of research, I'm an advocate for biodiversity conservation and sustainable farming.</p>
-                </div>
+                <section class="cv-section">
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                    
+                    <div class="cv-item">
+                        <span class="cv-date">Jun 2021 – Dec 2025</span>
+                        <div class="cv-content">
+                            <h4>Doctorate in Biological Sciences</h4>
+                            <h5>National University of Río Cuarto, Argentina</h5>
+                            <p>Thesis title: <em>‘El rol de los roedores en el consumo de semillas de malezas resistentes a herbicidas en agroecosistemas del centro de Argentina’</em></p>
+                        </div>
+                    </div>
 
-                <div class="fun-fact">
-                    <i class="fas fa-coffee"></i>
-                    <p>Coffee and "mate" are my essential field-work partners.</p>
-                </div>
-            </aside>
+                    <div class="cv-item">
+                        <span class="cv-date">Mar 2013 – Nov 2019</span>
+                        <div class="cv-content">
+                            <h4>Licenciatura in Biological Sciences</h4>
+                            <h5>National University of Río Cuarto, Argentina</h5>
+                            <p>Thesis title: <em>‘Estudio de la dinámica poblacional de Arhopalus rusticus y Arhopalus syriacus (Coleoptera: Cerambycidae) en pinares de Córdoba’</em></p>
+                        </div>
+                    </div>
+                </section>
 
+                <section class="cv-section">
+                    <h2 class="section-title"><i class="fas fa-chalkboard-teacher"></i> Teaching</h2>
+                    
+                    <div class="cv-item">
+                        <span class="cv-date">Feb 2020 – Present</span>
+                        <div class="cv-content">
+                            <h4>Lecturer</h4>
+                            <h5>National University of Río Cuarto, Argentina</h5>
+                            <p>Courses: Animal Biology II and Behavioural Ecology</p>
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <span class="cv-date">Jul 2016 – Jul 2019</span>
+                        <div class="cv-content">
+                            <h4>Undergraduate Teaching Assistant</h4>
+                            <h5>National University of Río Cuarto, Argentina</h5>
+                            <p>Courses: Animal Biology II, Entomology, Animal Biodiversity I and Biology of Protozoan and Fungi</p>
+                        </div>
+                    </div>
+                </section>
+
+                 <section class="cv-section">
+                    <h2 class="section-title"><i class="fas fa-award"></i> Grants, Fellowships & Awards</h2>
+                    
+                    <div class="cv-item">
+                        <span class="cv-date">Apr 2020 – Mar 2026</span>
+                        <div class="cv-content">
+                            <h4>Doctoral Fellowship</h4>
+                            <p>National Scientific and Technical Research Council (CONICET) - Argentina</p>
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <span class="cv-date">Apr 2023 – Jul 2023</span>
+                        <div class="cv-content">
+                            <h4>DAAD/ALEARG Short-term Research Scholarship</h4>
+                            <p>Hochschule Anhalt, Bernburg, Germany</p>
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <span class="cv-date">May 2018 – May 2019</span>
+                        <div class="cv-content">
+                            <h4>Undergraduate Research Fellowship (EVC-CIN)</h4>
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <span class="cv-date">Jun 2017 – Jun 2018</span>
+                        <div class="cv-content">
+                            <h4>Honor Guard to the National Flag</h4>
+                        </div>
+                    </div>
+
+                    <div class="cv-item"><span class="cv-date">2017</span><div class="cv-content"><h4>Friends of Fulbright Scholarship</h4></div></div>
+                    <div class="cv-item"><span class="cv-date">2016</span><div class="cv-content"><h4>Academic Mobility Colombia-Argentina Scholarship</h4></div></div>
+                </section>
+
+                <section class="cv-section">
+                    <h2 class="section-title"><i class="fas fa-users"></i> Institutional Responsibilities</h2>
+                    <div class="cv-item"><span class="cv-date">April 2021 – Present</span><div class="cv-content"><h4>Member of the College of Biologists of Córdoba</h4><p>License B1420</p></div></div>
+                    <div class="cv-item"><span class="cv-date">2020 – Present</span><div class="cv-content"><h4>Member of SAREM</h4></div></div>
+                    <div class="cv-item"><span class="cv-date">2020 – Present</span><div class="cv-content"><h4>Member of AsAE</h4></div></div>
+                    <div class="cv-item"><span class="cv-date">Sept 2019 – Present</span><div class="cv-content"><h4>Member of the Expert Network</h4><p>SINAVIMO - SENASA</p></div></div>
+                    <div class="cv-item"><span class="cv-date">Aug 2021 – Aug 2022</span><div class="cv-content"><h4>Departmental Council Member</h4><p>Dept of Natural Sciences, UNRC</p></div></div>
+                </section>
+
+                <section class="cv-section">
+                    <h2 class="section-title"><i class="fas fa-language"></i> Languages</h2>
+                    <div class="languages-grid">
+                        <span class="lang-tag">Spanish: Native</span>
+                        <span class="lang-tag">English: Fluent (C1)</span>
+                        <span class="lang-tag">German: Basic (A2)</span>
+                    </div>
+                </section>
+
+            </div>
         </div>
     </main>
 
-    <footer>
-        <p>Cecilia R. Antonelli — 2026</p>
+    <section class="fun-facts-container">
+        <div class="container">
+            <div class="facts-grid">
+                
+                <div class="facts-list">
+                    <h2>Fun Facts 🌿</h2>
+                    <ul>
+                        <li>
+                            <i class="fas fa-laptop-code"></i>
+                            <span>I enjoy programming in R and exploring the world with GIS.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-book-open"></i>
+                            <span>I love learning, I deeply enjoy the challenge and growth that comes with learning anything.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-seedling"></i>
+                            <span>My hobbies include doing pottery, sewing, and caring for my house plant collection.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="carousel">
+                    <div class="carousel-inner" id="carouselTrack">
+                        
+                        <div class="carousel-item">
+                            <div class="carousel-img-container">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Coding">
+                            </div>
+                            <div class="carousel-caption">Programming & GIS</div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="carousel-img-container">
+                                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1000&auto=format&fit=crop" alt="Learning">
+                            </div>
+                            <div class="carousel-caption">Always Learning</div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="carousel-img-container">
+                                <img src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?q=80&w=1000&auto=format&fit=crop" alt="Pottery">
+                            </div>
+                            <div class="carousel-caption">Pottery & Plants</div>
+                        </div>
+
+                    </div>
+                    
+                    <button class="carousel-btn prev-btn" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next-btn" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer-hero">
+        <div class="container">
+            <h2 class="footer-title">Get in Touch</h2>
+            <div class="contact-links">
+                <a href="mailto:cantonelli@exa.unrc.edu.ar" class="social-icon" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://bsky.app/profile/ce-antonelli.bsky.social" target="_blank" class="social-icon" title="Bluesky">
+                    <svg viewBox="0 0 568 501"><path d="M123.1 21.5c86.5 61.1 141.2 148.6 160.9 194.2 19.7-45.6 74.4-133.1 160.9-194.2C503.4-13.2 568 4.4 568 79.2c0 15.6-8.2 140.3-13.1 158.4-23.3 85.3-113.3 107.5-191.7 93.3 124.7 23.4 153.1 98.7 85.1 166.8-124.3 124.3-157.4-44.7-163.7-77.8-6.3 33.1-39.4 202.1-163.7 77.8-68-68.1-39.6-143.4 85.1-166.8-78.4 14.2-168.4-8-191.7-93.3C8.2 219.5 0 94.8 0 79.2c0-74.8 64.6-92.4 123.1-57.7z"/></svg>
+                </a>
+                <a href="https://orcid.org/0000-0002-4571-7297" target="_blank" class="social-icon" title="ORCID">
+                    <i class="fa-brands fa-orcid"></i>
+                </a>
+                <a href="https://scholar.google.com.ar/citations?user=0VRzsc4AAAAJ&hl=es" target="_blank" class="social-icon" title="Google Scholar">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </a>
+                <a href="https://github.com/crantonelli/" target="_blank" class="social-icon" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+            <p class="footer-text">Cecilia R. Antonelli</p>
+            <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.6;">© 2026 | Built with GitHub Pages</p>
+        </div>
     </footer>
+    <script>
+        let currentSlide = 0;
+        const track = document.getElementById('carouselTrack');
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+
+        function moveSlide(n) {
+            currentSlide = (currentSlide + n + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const width = slides[0].clientWidth;
+            track.style.transform = `translateX(-${currentSlide * width}px)`;
+        }
+
+        setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+
+        window.addEventListener('resize', updateCarousel);
+    </script>
 
 </body>
 </html>
