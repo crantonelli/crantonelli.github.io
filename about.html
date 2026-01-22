@@ -36,7 +36,7 @@
         .back-home { text-decoration: none; color: #555; display: inline-flex; align-items: center; gap: 5px; font-weight: bold; }
         .back-home:hover { color: var(--verde-principal); }
 
-        /* Profile Header Styles */
+        /* Header /
         .profile-section {
             display: flex;
             align-items: center;
@@ -63,7 +63,7 @@
         .profile-text h2 { font-size: 2.5rem; margin-bottom: 15px; line-height: 1.1; }
         .profile-bio { font-size: 1.1rem; color: #444; max-width: 600px; }
 
-        /* CV Styles */
+        /* CV */
         .cv-wrapper { display: grid; grid-template-columns: 1fr; gap: 40px; }
         .cv-section { margin-bottom: 50px; }
         
@@ -85,7 +85,7 @@
         .languages-grid { display: flex; gap: 20px; flex-wrap: wrap; }
         .lang-tag { background: #eee; padding: 5px 15px; border-radius: 20px; font-weight: bold; }
 
-        /* --- NEW FUN FACTS LAYOUT --- */
+      
         .fun-facts-container {
             background-color: var(--fondo-carrusel);
             color: white;
@@ -95,7 +95,7 @@
 
         .facts-grid {
             display: grid;
-            /* 1.5fr for text, 1fr for image (Text is larger, Image is smaller than half) */
+           
             grid-template-columns: 1.5fr 1fr; 
             gap: 50px;
             align-items: center;
@@ -122,13 +122,13 @@
         .facts-list li i {
             color: var(--verde-claro);
             font-size: 1.3rem;
-            margin-top: 5px; /* Align icon with first line of text */
+            margin-top: 5px; 
         }
 
-        /* Compact Carousel Styles */
+        /* Carousel */
         .carousel {
             position: relative;
-            width: 100%; /* Takes full width of the right column */
+            width: 100%; 
             overflow: hidden;
             border-radius: 15px;
             background: rgba(255, 255, 255, 0.1);
@@ -143,11 +143,11 @@
             width: 400px;
             overflow: hidden; 
         }
-        .carousel-img-container img { width: 100%; height: 100%; object-fit: cover; }
+        .carousel-img-container img { position: absolute; width: 100%; height: 100%; object-fit: cover; }
 
        .carousel-btn {
             position: absolute;
-            top: 40%; /* Adjusted slightly up because caption is smaller */
+            top: 40%; 
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.2);
             color: white; border: none; padding: 10px; cursor: pointer;
@@ -184,7 +184,6 @@
             .profile-section { flex-direction: column; text-align: center; gap: 20px; }
             .headshot-container { width: 180px; height: 180px; margin: 0 auto; }
             
-            /* Stack facts and carousel on mobile */
             .facts-grid { grid-template-columns: 1fr; gap: 30px; }
             .carousel-img-container { height: 300px; } /* Taller image on mobile */
         }
