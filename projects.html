@@ -44,35 +44,30 @@
         .results-box { background: #f4fcf4; padding: 20px; border-left: 5px solid var(--verde-principal); margin-top: 20px; }
 
                 
-        /* Contenedor del Slider */
+        /* Simplified Carousel - Match About Page */
         .slider-container {
             position: relative;
             width: 100%;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: #eee;
         }
 
         .slider-wrapper {
-            position: relative;
+            display: flex;
+            transition: transform 0.8s ease-in-out;
             height: 400px;
-            background-color: #eee; /* This helps you see if the container exists */
         }
 
         .slide {
-            position: absolute;
+            flex: 0 0 100%;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
         }
 
-        .slide.active {
-            opacity: 1;
-        }
-
-        /* Botones Navegación */
+        /* Navigation Buttons */
         .prev, .next {
             position: absolute;
             top: 50%;
@@ -90,36 +85,6 @@
         .prev:hover, .next:hover { background: var(--verde-principal); color: black; }
         .prev { left: 0; border-radius: 0 5px 5px 0; }
         .next { right: 0; border-radius: 5px 0 0 5px; }
-
-        /* Puntitos */
-        .dots-container {
-            position: absolute;
-            bottom: 15px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            background: rgba(255,255,255,0.5);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .dot.active { background: var(--verde-principal); transform: scale(1.2); }
-
-        .project-gif {
-            width: 100%;
-            height: 400px; 
-            object-fit: cover; 
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            display: block;
-        }
         
         /* Footer */
         .footer-hero { 
@@ -220,14 +185,8 @@
                     <button class="prev" onclick="changeSlide('slider-ecosystem', -1)">&#10094;</button>
                     <button class="next" onclick="changeSlide('slider-ecosystem', 1)">&#10095;</button>
         
-                    <div class="dots-container">
-                        <span class="dot active" onclick="setSlide('slider-ecosystem', 0)"></span>
-                        <span class="dot" onclick="setSlide('slider-ecosystem', 1)"></span>
-                        <span class="dot" onclick="setSlide('slider-ecosystem', 2)"></span>
-                        <span class="dot" onclick="setSlide('slider-ecosystem', 3)"></span>
-                    </div>
-                </div>
-            </div>
+                     </div>
+                 </div>
                 <div class="project-text">
                     <span class="project-tag">Ecosystem Services</span>
                     <h2>Weed seed predation by rodents</h2>
@@ -272,14 +231,8 @@
                     <button class="prev" onclick="changeSlide('slider-urban', -1)">&#10094;</button>
                     <button class="next" onclick="changeSlide('slider-urban', 1)">&#10095;</button>
         
-                    <div class="dots-container">
-                        <span class="dot active" onclick="setSlide('slider-urban', 0)"></span>
-                        <span class="dot" onclick="setSlide('slider-urban', 1)"></span>
-                        <span class="dot" onclick="setSlide('slider-urban', 2)"></span>
-                        <span class="dot" onclick="setSlide('slider-urban', 3)"></span>
-                    </div>
-                </div>
-            </div>
+                     </div>
+                 </div>
                 <div class="project-text">
                     <span class="project-tag">Environmental change</span>
                     <h2>Urban occupancy of <i>Mus musculus</i></h2>
@@ -326,26 +279,20 @@
             navLinks.classList.toggle('active');
         });
 
-
+    // Simplified Slider Logic
     function updateSlider(containerId, index) {
         const container = document.getElementById(containerId);
+        const wrapper = container.querySelector('.slider-wrapper');
         const slides = container.querySelectorAll('.slide');
-        const dots = container.querySelectorAll('.dot');
         
-        // Manejo de fin de lista
         let currentIndex = index;
         if (index >= slides.length) currentIndex = 0;
         if (index < 0) currentIndex = slides.length - 1;
 
-        // Quitar clases activas
-        slides.forEach(s => s.classList.remove('active'));
-        dots.forEach(d => d.classList.remove('active'));
-
-        // Activar el nuevo
-        slides[currentIndex].classList.add('active');
-        dots[currentIndex].classList.add('active');
+        // Slide the wrapper by 100% * current index
+        wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
         
-        // Guardar el índice actual en el elemento
+        // Save the index
         container.dataset.currentIndex = currentIndex;
     }
 
@@ -355,17 +302,14 @@
         updateSlider(containerId, idx + step);
     }
 
-    function setSlide(containerId, index) {
-        updateSlider(containerId, index);
-    }
-
-    // Auto-rotación para todos los sliders
+    // Auto-rotation and Initialization
     document.querySelectorAll('.slider-container').forEach(slider => {
         slider.dataset.currentIndex = 0;
         setInterval(() => {
             changeSlide(slider.id, 1);
-        }, 5000); // Cambia cada 5 segundos
+        }, 5000); 
     });
+  
 </script>
     
 </body>
