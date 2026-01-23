@@ -38,80 +38,80 @@
 
                 
         /* Contenedor del Slider */
-.slider-container {
-    position: relative;
-    width: 100%;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
+        .slider-container {
+            position: relative;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
 
-.slider-wrapper {
-    position: relative;
-    height: 400px; /* Ajusta según prefieras */
-}
+        .slider-wrapper {
+            position: relative;
+            height: 400px; /* Ajusta según prefieras */
+        }
 
-.slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-}
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
 
-.slide.active {
-    opacity: 1;
-}
+        .slide.active {
+            opacity: 1;
+        }
 
-/* Botones Navegación */
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.3);
-    color: white;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: 0.3s;
-    z-index: 10;
-}
+        /* Botones Navegación */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.3);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s;
+            z-index: 10;
+        }
 
-.prev:hover, .next:hover { background: var(--verde-principal); color: black; }
-.prev { left: 0; border-radius: 0 5px 5px 0; }
-.next { right: 0; border-radius: 5px 0 0 5px; }
+        .prev:hover, .next:hover { background: var(--verde-principal); color: black; }
+        .prev { left: 0; border-radius: 0 5px 5px 0; }
+        .next { right: 0; border-radius: 5px 0 0 5px; }
 
-/* Puntitos */
-.dots-container {
-    position: absolute;
-    bottom: 15px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-}
+        /* Puntitos */
+        .dots-container {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
 
-.dot {
-    width: 12px;
-    height: 12px;
-    background: rgba(255,255,255,0.5);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-.dot.active { background: var(--verde-principal); transform: scale(1.2); }
+        .dot.active { background: var(--verde-principal); transform: scale(1.2); }
 
-.project-gif {
-    width: 100%;
-    height: 400px; /* Mantenemos la altura que tenía el slider */
-    object-fit: cover; /* Esto evita que el GIF se deforme si no tiene la proporción exacta */
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    display: block;
-}
+        .project-gif {
+            width: 100%;
+            height: 400px; /* Mantenemos la altura que tenía el slider */
+            object-fit: cover; /* Esto evita que el GIF se deforme si no tiene la proporción exacta */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: block;
+        }
         
         footer { background: #1a1a1a; color: white; padding: 40px 0; text-align: center; }
 
