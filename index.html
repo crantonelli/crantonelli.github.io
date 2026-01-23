@@ -76,7 +76,7 @@
 
         /* Hero / Focus */
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/Fondo.jpg'); 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/Fondo.jpg'); 
             background-size: cover; background-position: center; background-attachment: fixed;
             color: white; padding: 100px 0; text-align: center;
         }
@@ -166,7 +166,7 @@
         
         /* Footer */
         .footer-hero { 
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/Fondo.jpg'); 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/Fondo.jpg'); 
             background-size: cover; background-position: center; background-attachment: fixed;
             color: white; padding: 80px 0; text-align: center; margin-top: 60px;
         }
@@ -185,20 +185,70 @@
         .social-icon:hover svg { fill: var(--verde-principal); }
 
         .footer-text { margin-top: 50px; opacity: 0.8; font-size: 1.1rem; }
+
+        /* Mobile Optimization Styles */
+    @media (max-width: 768px) {
+    /* 1. Navigation Menu */
+    .menu-toggle { display: block; font-size: 1.5rem; cursor: pointer; }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: #fff;
+        width: 200px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        gap: 1rem;
+    }
+    .nav-links.active { display: flex; }
+
+    /* 2. Profile Section: Stack photo on top of text */
+    .profile-flex { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 20px; 
+    }
+    .profile-img { width: 200px; height: 200px; }
+    .profile-name { font-size: 2.5rem; }
+    .profile-tags { justify-content: center; }
+
+    /* 3. Hero & Titles: Scale down large text */
+    .hero h2 { font-size: 1.8rem; }
+    .hero p { font-size: 1.1rem; }
+    #research h2 { font-size: 2rem !important; }
+
+    /* 4. Background Fix: Fixed backgrounds are buggy on iOS */
+    .hero, .footer-hero { background-attachment: scroll; }
+
+    /* 5. Grid adjustments */
+    .grid { grid-template-columns: 1fr; }
+    
+    /* 6. Publications: Stack the icon and text */
+    .pub-entry { 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+        gap: 10px;
+    }
+}
     </style>
 </head>
 <body>
 
-    <header>
-        <nav class="container">
-            <div class="logo"><a href="#about"><strong>CR</strong> Antonelli</div>
-            <ul class="nav-links">
-                <li><a href="projects.html">Research</a></li>
-                <li><a href="full_list.html">Publications</a></li>
-                <li><a href="about.html">About me</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+   <header>
+    <nav class="container">
+        <div class="logo"><a href="index.html"><strong>CR</strong> Antonelli</a></div>
+        <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="projects.html">Research</a></li>
+            <li><a href="full_list.html">Publications</a></li>
+            <li><a href="about.html">About me</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
     </header>
 
     <section id="about" class="profile-section">
@@ -318,6 +368,28 @@
             <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.6;">© 2026 | Built with GitHub Pages</p>
         </div>
     </footer>
+
+    
+<script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    const menuIcon = menuToggle.querySelector('i');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        // Toggle icon between bars and X
+        menuIcon.classList.toggle('fa-bars');
+        menuIcon.classList.toggle('fa-xmark');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuIcon.classList.replace('fa-xmark', 'fa-bars');
+        });
+    });
+</script>
 
 </body>
 </html>
