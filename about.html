@@ -254,7 +254,7 @@
     <main>
         <div class="container">
             
-            <h1 style="font-size: 3.5rem; margin-bottom: 30px; text-align: left;">Curriculum Vitae</h1>
+            <h1 style="font-size: 2.5rem; margin-bottom: 30px; text-align: left;">Curriculum Vitae</h1>
             
             <div class="profile-section">
                 <div class="headshot-container">
@@ -536,17 +536,29 @@
         // Mobile menu toggle
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
+        const menuIcon = menuToggle.querySelector('i');
 
         menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        });
+            navLinks.classList.toggle('active');
+    
+                // Toggle between the "bars" icon and the "X" (xmark) icon
+                if (navLinks.classList.contains('active')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-xmark');
+                } else {
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
 
-        // Close menu when a link is clicked
-        document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-    });
-});
+                // Ensure clicking a link closes the menu and resets the icon
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                });
+            });
 
     </script>
 
