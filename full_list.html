@@ -16,7 +16,7 @@
         body { font-family: 'Lato', sans-serif; line-height: 1.6; color: var(--texto-negro); background-color: #fff; }
         h1, h2, h3, .logo { font-family: 'Aref Ruqaa', serif; }
         
-        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
         header { background: #ddf8d7; padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         nav { display: flex; justify-content: space-between; align-items: center; }
@@ -24,13 +24,18 @@
         .nav-links a { color: var(--texto-negro); text-decoration: none; font-weight: bold; }
         .logo a { color: var(--texto-negro); text-decoration: none; font-weight: bold; }
 
-        .publications-header { padding: 60px 0 30px; border-bottom: 2px solid var(--verde-principal); margin-bottom: 40px;font-size: 3rem; }
-        .back-home { display: inline-block; margin-bottom: 20px; color: #666; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
-        .back-home:hover { color: var(--verde-principal); }
+        .menu-toggle { display: none; cursor: pointer; color: var(--texto-negro); }
+
+        .publications-header { padding: 60px 0 30px; border-bottom: 2px solid var(--verde-principal); margin-bottom: 40px; }
+        .publications-header h1 {font-size:  3rem; text-align: left; color: var(--texto-negro);}
+
+        /* .back-home { display: inline-block; margin-bottom: 20px; color: #666; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .back-home:hover { color: var(--verde-principal); } */
 
         .section-title { font-size: 2.2rem; margin: 40px 0 25px; color: var(--texto-negro); position: relative; }
         .section-title::after { content: ''; display: block; width: 50px; height: 4px; background: var(--verde-principal); margin-top: 5px; }
 
+        /* Publication items format */
         .year-label { font-weight: bold; color: var(--verde-principal); font-size: 1.2rem; margin-top: 30px; display: block; border-bottom: 1px solid #eee; }
 
         .pub-item { margin: 20px 0; padding-left: 20px; border-left: 3px solid var(--gris-suave); transition: 0.3s; }
@@ -69,6 +74,30 @@
         .social-icon:hover svg { fill: var(--verde-principal); }
 
         .footer-text { margin-top: 50px; opacity: 0.8; font-size: 1.1rem; }
+    
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; font-size: 1.5rem; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background: #fff;
+                width: 200px;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                gap: 1rem;
+            }
+            .nav-links.active { display: flex; }
+            
+            .publications-header h1 { font-size: 2rem; }
+            .section-title { font-size: 1.8rem; }
+            .footer-hero { background-attachment: scroll; }
+        }
+    
     </style>
 </head>
 <body>
@@ -76,6 +105,9 @@
  <header>
         <nav class="container">
             <div class="logo"><a href="index.html"><strong>CR</strong> Antonelli</a></div>
+            
+            <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+            
             <ul class="nav-links">
                 <li><a href="projects.html">Research</a></li>
                 <li><a href="full_list.html">Publications</a></li>
@@ -92,192 +124,192 @@
 
         <h2 class="section-title">Peer-Reviewed Publications</h2>
 
-        <span class="year-label">2025</span>
-        <div class="pub-item">
-            <span class="pub-title">Plot and border effects on herbicide-resistant weed seed consumption by rodents in corn and soybean crops of central Argentina</span>
-            <span class="pub-authors">Antonelli, C. R., Cabral, E., Berejnoi, D. E., Priotto, J., & Gomez, M. D.</span>
-            <span class="pub-journal">Agriculture, Ecosystems & Environment, 378, 109320.</span>
-            <div class="pub-links">
-                <a href="https://doi.org/10.1016/j.agee.2024.109320" target="_blank">[DOI Link]</a>
+            <span class="year-label">2025</span>
+            <div class="pub-item">
+                <span class="pub-title">Plot and border effects on herbicide-resistant weed seed consumption by rodents in corn and soybean crops of central Argentina</span>
+                <span class="pub-authors">Antonelli, C. R., Cabral, E., Berejnoi, D. E., Priotto, J., & Gomez, M. D.</span>
+                <span class="pub-journal">Agriculture, Ecosystems & Environment, 378, 109320.</span>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1016/j.agee.2024.109320" target="_blank">[DOI Link]</a>
+                </div>
             </div>
-        </div>
 
-        <span class="year-label">2022</span>
-        <div class="pub-item">
-            <span class="pub-title">What happened to the house mouse: Modelling the occupancy of Mus musculus in an Argentine city considering its urban growth</span>
-            <span class="pub-authors">Antonelli, C. R., San Miguel, T. V., De Angelo, C., Priotto, J., Provensal, M. C., & Gomez, M. D.</span>
-            <span class="pub-journal">Landscape and Urban Planning, 227, 104542.</span>
-            <div class="pub-links">
-                <a href="https://doi.org/10.1016/j.landurbplan.2022.104542" target="_blank">[DOI Link]</a>
+            <span class="year-label">2022</span>
+            <div class="pub-item">
+                <span class="pub-title">What happened to the house mouse: Modelling the occupancy of Mus musculus in an Argentine city considering its urban growth</span>
+                <span class="pub-authors">Antonelli, C. R., San Miguel, T. V., De Angelo, C., Priotto, J., Provensal, M. C., & Gomez, M. D.</span>
+                <span class="pub-journal">Landscape and Urban Planning, 227, 104542.</span>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1016/j.landurbplan.2022.104542" target="_blank">[DOI Link]</a>
+                </div>
             </div>
-        </div>
 
-        <span class="year-label">2020</span>
-        <div class="pub-item">
-            <span class="pub-title">Evaluation of mortality caused by Arhopalus spp. in pine plantations in the province of Córdoba, Argentina</span>
-            <span class="pub-authors">Antonelli, C. R., Demaestri, M., & Crenna, C.</span>
-            <span class="pub-journal">Quebracho, 28.</span>
-            <div class="pub-links">
-                <a href="https://ojs.unse.edu.ar/index.php/Quebracho/article/view/223" target="_blank">[Journal Link]</a>
+            <span class="year-label">2020</span>
+            <div class="pub-item">
+                <span class="pub-title">Evaluation of mortality caused by Arhopalus spp. in pine plantations in the province of Córdoba, Argentina</span>
+                <span class="pub-authors">Antonelli, C. R., Demaestri, M., & Crenna, C.</span>
+                <span class="pub-journal">Quebracho, 28.</span>
+                <div class="pub-links">
+                    <a href="https://ojs.unse.edu.ar/index.php/Quebracho/article/view/223" target="_blank">[Journal Link]</a>
+                </div>
             </div>
-        </div>
 
-        <div class="pub-item">
-            <span class="pub-title">Abundance and distribution of two exotic beetles in Córdoba (Argentina) between 2009 and 2016</span>
-            <span class="pub-authors">Antonelli, C. R., Demaestri, M., & Crenna, C.</span>
-            <span class="pub-journal">Revista Científica FAV-UNRC Ab Intus, 5, 30.</span>
-            <div class="pub-links">
-                <a href="https://www.ayv.unrc.edu.ar/ojs/index.php/Ab_Intus/article/view/63" target="_blank">[Journal Link]</a>
+            <div class="pub-item">
+                <span class="pub-title">Abundance and distribution of two exotic beetles in Córdoba (Argentina) between 2009 and 2016</span>
+                <span class="pub-authors">Antonelli, C. R., Demaestri, M., & Crenna, C.</span>
+                <span class="pub-journal">Revista Científica FAV-UNRC Ab Intus, 5, 30.</span>
+                <div class="pub-links">
+                    <a href="https://www.ayv.unrc.edu.ar/ojs/index.php/Ab_Intus/article/view/63" target="_blank">[Journal Link]</a>
+                </div>
             </div>
-        </div>
 
         <h2 class="section-title">Submitted Articles</h2>
         
-        <div class="pub-item">
-            <span class="pub-status">UNDER REVIEW</span>
-            <span class="pub-title">Foraging choices of rodents: How seed traits determine weed fate</span>
-            <span class="pub-authors">Antonelli, C. R., Priotto, J., Cabral, E., Berejnoi, D. E., Rohzon, W., Fischer, C., & Gomez, M. D.</span>
-        </div>
+            <div class="pub-item">
+                <span class="pub-status">UNDER REVIEW</span>
+                <span class="pub-title">Foraging choices of rodents: How seed traits determine weed fate</span>
+                <span class="pub-authors">Antonelli, C. R., Priotto, J., Cabral, E., Berejnoi, D. E., Rohzon, W., Fischer, C., & Gomez, M. D.</span>
+            </div>
 
-        <div class="pub-item">
-            <span class="pub-status">UNDER REVIEW</span>
-            <span class="pub-title">Assessing the impact of local and landscape environmental variables on weed seed consumption in industrialized agroecosystems</span>
-            <span class="pub-authors">Cabral, E., Antonelli, C. R., Berejnoi, D. E., Gomez, M. D., & Priotto, J.</span>
-        </div>
+            <div class="pub-item">
+                <span class="pub-status">UNDER REVIEW</span>
+                <span class="pub-title">Assessing the impact of local and landscape environmental variables on weed seed consumption in industrialized agroecosystems</span>
+                <span class="pub-authors">Cabral, E., Antonelli, C. R., Berejnoi, D. E., Gomez, M. D., & Priotto, J.</span>
+            </div>
 
         <h2 class="section-title">Conferences</h2>
 
-<span class="year-label">2025</span>
-<div class="pub-item">
-    <span class="pub-status">ORAL PRESENTATION</span>
-    <span class="pub-title">Consistencia en los patrones de depredación de semillas por roedores: Evidencia en agroecosistemas contrastantes</span>
-    <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
-        Pattern consistency in seed predation by rodents: Evidence from contrasting agroecosystems
-    </span>
-    <span class="pub-authors">Antonelli, C. R., Batáry, P., Berejnoi, D. E., Cabral, E., Fischer, C., Priotto, J., Rozhon, W., Stein, P., & Gomez, M. D.</span>
-    <span class="conf-location">VIII Congreso Nacional de Conservación de la Biodiversidad (8th National Congress on Biodiversity Conservation). San Juan, Argentina.</span>
-</div>
+            <span class="year-label">2025</span>
+            <div class="pub-item">
+                <span class="pub-status">ORAL PRESENTATION</span>
+                <span class="pub-title">Consistencia en los patrones de depredación de semillas por roedores: Evidencia en agroecosistemas contrastantes</span>
+                <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
+                    Pattern consistency in seed predation by rodents: Evidence from contrasting agroecosystems
+                </span>
+                <span class="pub-authors">Antonelli, C. R., Batáry, P., Berejnoi, D. E., Cabral, E., Fischer, C., Priotto, J., Rozhon, W., Stein, P., & Gomez, M. D.</span>
+                <span class="conf-location">VIII Congreso Nacional de Conservación de la Biodiversidad (8th National Congress on Biodiversity Conservation). San Juan, Argentina.</span>
+            </div>
 
-<div class="pub-item">
-    <span class="pub-status">POSTER</span>
-    <span class="pub-title">Polinización en agroecosistemas: evaluación en bordes de cultivos</span>
-    <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
-        Pollination in agroecosystems: evaluation in crop borders
-    </span>
-    <span class="pub-authors">Berejnoi, D., Antonelli, C. R., Cabral. E., Priotto, J., & Gomez, M. D.</span>
-    <span class="conf-location">VIII Congreso Nacional de Conservación de la Biodiversidad (8th National Congress on Biodiversity Conservation). San Juan, Argentina.</span>
-</div>
+            <div class="pub-item">
+                <span class="pub-status">POSTER</span>
+                <span class="pub-title">Polinización en agroecosistemas: evaluación en bordes de cultivos</span>
+                <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
+                    Pollination in agroecosystems: evaluation in crop borders
+                </span>
+                <span class="pub-authors">Berejnoi, D., Antonelli, C. R., Cabral. E., Priotto, J., & Gomez, M. D.</span>
+                <span class="conf-location">VIII Congreso Nacional de Conservación de la Biodiversidad (8th National Congress on Biodiversity Conservation). San Juan, Argentina.</span>
+            </div>
 
-<span class="year-label">2024</span>
-<div class="pub-item">
-    <span class="pub-status">SYMPOSIUM</span>
-    <span class="pub-title">Contribuciones de los pequeños mamíferos no voladores al control de plagas en agroecosistemas industrializados</span>
-    <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
-        Contributions of small non-flying mammals to pest control in industrialized agroecosystems
-    </span>
-    <span class="pub-authors">Gomez, M. D., Antonelli, C. R., Cabral, E., Berejnoi, D. E., & Priotto, J.</span>
-    <span class="conf-location">XXXV Jornadas Argentinas de Mastozoología (35th Argentine Conference on Mammalogy). San Luis, Argentina.</span>
-</div>
+            <span class="year-label">2024</span>
+            <div class="pub-item">
+                <span class="pub-status">SYMPOSIUM</span>
+                <span class="pub-title">Contribuciones de los pequeños mamíferos no voladores al control de plagas en agroecosistemas industrializados</span>
+                <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
+                    Contributions of small non-flying mammals to pest control in industrialized agroecosystems
+                </span>
+                <span class="pub-authors">Gomez, M. D., Antonelli, C. R., Cabral, E., Berejnoi, D. E., & Priotto, J.</span>
+                <span class="conf-location">XXXV Jornadas Argentinas de Mastozoología (35th Argentine Conference on Mammalogy). San Luis, Argentina.</span>
+            </div>
 
-<div class="pub-item">
-    <span class="pub-status">ORAL PRESENTATION</span>
-    <span class="pub-title">La granivoría en agroecosistemas: la importancia de los roedores</span>
-    <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
-        Granivory in agroecosystems: the importance of rodents
-    </span>
-    <span class="pub-authors">Cabral, E., Antonelli, C. R., Gomez, M. D., & Priotto, J.</span>
-    <span class="conf-location">XXXV Jornadas Argentinas de Mastozoología (35th Argentine Conference on Mammalogy). San Luis, Argentina.</span>
-</div>
+            <div class="pub-item">
+                <span class="pub-status">ORAL PRESENTATION</span>
+                <span class="pub-title">La granivoría en agroecosistemas: la importancia de los roedores</span>
+                <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
+                    Granivory in agroecosystems: the importance of rodents
+                </span>
+                <span class="pub-authors">Cabral, E., Antonelli, C. R., Gomez, M. D., & Priotto, J.</span>
+                <span class="conf-location">XXXV Jornadas Argentinas de Mastozoología (35th Argentine Conference on Mammalogy). San Luis, Argentina.</span>
+            </div>
 
-<div class="pub-item">
-    <span class="pub-status">ORAL PRESENTATION</span>
-    <span class="pub-title">¿Cómo afectan las características de las semillas la preferencia alimenticia de <i>Calomys laucha</i>, <i>Calomys musculinus</i> y <i>Akodon azarae</i>?</span>
-    <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
-        How do seed characteristics affect the feeding preference of <i>Calomys laucha</i>, <i>Calomys musculinus</i> and <i>Akodon azarae</i>?
-    </span>
-    <span class="pub-authors">Antonelli, C. R., Cabral, E., Berejnoi, D. E., Priotto, J., & Gomez, M. D.</span>
-    <span class="conf-location">XXXV Jornadas Argentinas de Mastozoología (35th Argentine Conference on Mammalogy). San Luis, Argentina.</span>
-</div>
+            <div class="pub-item">
+                <span class="pub-status">ORAL PRESENTATION</span>
+                <span class="pub-title">¿Cómo afectan las características de las semillas la preferencia alimenticia de <i>Calomys laucha</i>, <i>Calomys musculinus</i> y <i>Akodon azarae</i>?</span>
+                <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
+                    How do seed characteristics affect the feeding preference of <i>Calomys laucha</i>, <i>Calomys musculinus</i> and <i>Akodon azarae</i>?
+                </span>
+                <span class="pub-authors">Antonelli, C. R., Cabral, E., Berejnoi, D. E., Priotto, J., & Gomez, M. D.</span>
+                <span class="conf-location">XXXV Jornadas Argentinas de Mastozoología (35th Argentine Conference on Mammalogy). San Luis, Argentina.</span>
+            </div>
 
-<div class="pub-item">
-    <span class="pub-status">POSTER</span>
-    <span class="pub-title">¿Los roedores son depredadores o dispersores de semillas de malezas en los agroecosistemas?</span>
-    <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
-        Are rodents predators or dispersers of weed seeds in agroecosystems?
-    </span>
-    <span class="pub-authors">Antonelli, C. R., Cabral, E., Berejnoi, D. E., Priotto, J., & Gomez, M. D.</span>
-    <span class="conf-location">XXXV Jornadas Argentinas de Mastozoología (35th Argentine Conference on Mammalogy). San Luis, Argentina.</span>
-</div>
+            <div class="pub-item">
+                <span class="pub-status">POSTER</span>
+                <span class="pub-title">¿Los roedores son depredadores o dispersores de semillas de malezas en los agroecosistemas?</span>
+                <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
+                    Are rodents predators or dispersers of weed seeds in agroecosystems?
+                </span>
+                <span class="pub-authors">Antonelli, C. R., Cabral, E., Berejnoi, D. E., Priotto, J., & Gomez, M. D.</span>
+                <span class="conf-location">XXXV Jornadas Argentinas de Mastozoología (35th Argentine Conference on Mammalogy). San Luis, Argentina.</span>
+            </div>
 
-<span class="year-label">2022</span>
-<div class="pub-item">
-    <span class="pub-status">ORAL PRESENTATION</span>
-    <span class="pub-title">Los roedores como consumidores de semillas en agroecosistemas de Argentina, ¿amigos o enemigos de los sistemas productivos?</span>
-    <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
-        Rodents as seed consumers in agroecosystems in Argentina: friend or foe of production systems?
-    </span>
-    <span class="pub-authors">Antonelli, C. R., E. Cabral, D. E. Berejnoi, M. D. Gomez, & J. Priotto</span>
-    <span class="conf-location">XXXIII Jornadas Argentinas de Mastozoología (33rd Argentine Conference on Mammalogy). Misiones, Argentina.</span>
-</div>
+            <span class="year-label">2022</span>
+            <div class="pub-item">
+                <span class="pub-status">ORAL PRESENTATION</span>
+                <span class="pub-title">Los roedores como consumidores de semillas en agroecosistemas de Argentina, ¿amigos o enemigos de los sistemas productivos?</span>
+                <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
+                    Rodents as seed consumers in agroecosystems in Argentina: friend or foe of production systems?
+                </span>
+                <span class="pub-authors">Antonelli, C. R., E. Cabral, D. E. Berejnoi, M. D. Gomez, & J. Priotto</span>
+                <span class="conf-location">XXXIII Jornadas Argentinas de Mastozoología (33rd Argentine Conference on Mammalogy). Misiones, Argentina.</span>
+            </div>
 
-<div class="pub-item">
-    <span class="pub-status">ORAL PRESENTATION</span>
-    <span class="pub-title">What happened to the house mouse: modelling the occupancy of <i>Mus musculus</i> in an Argentine city considering its urban growth</span>
-    <span class="pub-authors">Antonelli, C. R., Gomez, M. D., Priotto, J., De Angelo, C., & Provensal, M. C.</span>
-    <span class="conf-location">7th International Conference on Rodent Biology and Management. Arusha, Tanzania.</span>
-</div>
+            <div class="pub-item">
+                <span class="pub-status">ORAL PRESENTATION</span>
+                <span class="pub-title">What happened to the house mouse: modelling the occupancy of <i>Mus musculus</i> in an Argentine city considering its urban growth</span>
+                <span class="pub-authors">Antonelli, C. R., Gomez, M. D., Priotto, J., De Angelo, C., & Provensal, M. C.</span>
+                <span class="conf-location">7th International Conference on Rodent Biology and Management. Arusha, Tanzania.</span>
+            </div>
 
-<span class="year-label">2021</span>
-<div class="pub-item">
-    <span class="pub-status">POSTER</span>
-    <span class="pub-title">Ocupación de <i>Mus musculus</i> en la ciudad de Río Cuarto</span>
-    <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
-        Occupancy of <i>Mus musculus</i> in the city of Río Cuarto
-    </span>
-    <span class="pub-authors">Antonelli, C. R., Gomez, M. D., Priotto, J., De Angelo, C., & Provensal, M. C.</span>
-    <span class="conf-location">XXIX Reunión Argentina de Ecología (29th Argentine Ecology Meeting). Tucumán, Argentina.</span>
-</div>
+            <span class="year-label">2021</span>
+            <div class="pub-item">
+                <span class="pub-status">POSTER</span>
+                <span class="pub-title">Ocupación de <i>Mus musculus</i> en la ciudad de Río Cuarto</span>
+                <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
+                    Occupancy of <i>Mus musculus</i> in the city of Río Cuarto
+                </span>
+                <span class="pub-authors">Antonelli, C. R., Gomez, M. D., Priotto, J., De Angelo, C., & Provensal, M. C.</span>
+                <span class="conf-location">XXIX Reunión Argentina de Ecología (29th Argentine Ecology Meeting). Tucumán, Argentina.</span>
+            </div>
 
-<div class="pub-item">
-    <span class="pub-status">ORAL PRESENTATION</span>
-    <span class="pub-title">¿El control químico afecta el consumo de semillas de malezas en agroecosistemas?</span>
-    <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
-        Does chemical control affect weed seed consumption in agroecosystems?
-    </span>
-    <span class="pub-authors">Antonelli, C. R., Cabral, E., Gomez, M. D., & Priotto, J.</span>
-    <span class="conf-location">XXIX Reunión Argentina de Ecología (29th Argentine Ecology Meeting). Tucumán, Argentina.</span>
-</div>
+            <div class="pub-item">
+                <span class="pub-status">ORAL PRESENTATION</span>
+                <span class="pub-title">¿El control químico afecta el consumo de semillas de malezas en agroecosistemas?</span>
+                <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
+                    Does chemical control affect weed seed consumption in agroecosystems?
+                </span>
+                <span class="pub-authors">Antonelli, C. R., Cabral, E., Gomez, M. D., & Priotto, J.</span>
+                <span class="conf-location">XXIX Reunión Argentina de Ecología (29th Argentine Ecology Meeting). Tucumán, Argentina.</span>
+            </div>
 
-<div class="pub-item">
-    <span class="pub-status">ORAL PRESENTATION</span>
-    <span class="pub-title">Predicción y validación de la ocupación actual de <i>Mus musculus</i> en Río Cuarto</span>
-    <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
-        Prediction and validation of the current occupancy of <i>Mus musculus</i> in Río Cuarto
-    </span>
-    <span class="pub-authors">San Miguel, T. V., Antonelli, C. R., Priotto, J., De Angelo, C., Gomez, M. D., & Provensal, C.</span>
-    <span class="conf-location">XXIX Reunión Argentina de Ecología (29th Argentine Ecology Meeting). Tucumán, Argentina.</span>
-</div>
+            <div class="pub-item">
+                <span class="pub-status">ORAL PRESENTATION</span>
+                <span class="pub-title">Predicción y validación de la ocupación actual de <i>Mus musculus</i> en Río Cuarto</span>
+                <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
+                    Prediction and validation of the current occupancy of <i>Mus musculus</i> in Río Cuarto
+                </span>
+                <span class="pub-authors">San Miguel, T. V., Antonelli, C. R., Priotto, J., De Angelo, C., Gomez, M. D., & Provensal, C.</span>
+                <span class="conf-location">XXIX Reunión Argentina de Ecología (29th Argentine Ecology Meeting). Tucumán, Argentina.</span>
+            </div>
 
-<div class="pub-item">
-    <span class="pub-status">ORAL PRESENTATION</span>
-    <span class="pub-title">¿Quiénes consumen semillas de malezas en los agroecosistemas templados?</span>
-    <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
-        Who consumes weed seeds in temperate agroecosystems?
-    </span>
-    <span class="pub-authors">Cabral, E., Antonelli, C. R., Gomez, D., & Priotto, J.</span>
-    <span class="conf-location">XXIX Reunión Argentina de Ecología (29th Argentine Ecology Meeting). Tucumán, Argentina.</span>
-</div>
+            <div class="pub-item">
+                <span class="pub-status">ORAL PRESENTATION</span>
+                <span class="pub-title">¿Quiénes consumen semillas de malezas en los agroecosistemas templados?</span>
+                <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
+                    Who consumes weed seeds in temperate agroecosystems?
+                </span>
+                <span class="pub-authors">Cabral, E., Antonelli, C. R., Gomez, D., & Priotto, J.</span>
+                <span class="conf-location">XXIX Reunión Argentina de Ecología (29th Argentine Ecology Meeting). Tucumán, Argentina.</span>
+            </div>
 
-<span class="year-label">2018</span>
-<div class="pub-item">
-    <span class="pub-status">POSTER</span>
-    <span class="pub-title">Modelado de las poblaciones de dos especies de escarabajos (<i>Arhopalus rusticus</i> y <i>Arhopalus syriacus</i>) en pinares de las Sierras de Córdoba</span>
-    <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
-        Population modelling of two beetle species (<i>Arhopalus rusticus</i> and <i>Arhopalus syriacus</i>) in pine forests of the Sierras de Córdoba
-    </span>
-    <span class="pub-authors">Antonelli, C. R., Demaestri, M., Crenna, C., Petryna, L., & Giovanini, D.</span>
-    <span class="conf-location">XVI Jornadas Fitosanitarias Argentinas (16th Argentine Phytosanitary Conference). Tucumán, Argentina.</span>
-</div>
+            <span class="year-label">2018</span>
+            <div class="pub-item">
+                <span class="pub-status">POSTER</span>
+                <span class="pub-title">Modelado de las poblaciones de dos especies de escarabajos (<i>Arhopalus rusticus</i> y <i>Arhopalus syriacus</i>) en pinares de las Sierras de Córdoba</span>
+                <span class="pub-authors" style="font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 5px; display: block;">
+                    Population modelling of two beetle species (<i>Arhopalus rusticus</i> and <i>Arhopalus syriacus</i>) in pine forests of the Sierras de Córdoba
+                </span>
+                <span class="pub-authors">Antonelli, C. R., Demaestri, M., Crenna, C., Petryna, L., & Giovanini, D.</span>
+                <span class="conf-location">XVI Jornadas Fitosanitarias Argentinas (16th Argentine Phytosanitary Conference). Tucumán, Argentina.</span>
+            </div>
 
     </main>
 
@@ -305,6 +337,19 @@
             <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.6;">© 2026 | Built with GitHub Pages</p>
         </div>
     </footer>
+
+    <script>
+            // Menu Toggle Script
+            const menuToggle = document.getElementById('mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            const menuIcon = menuToggle.querySelector('i');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuIcon.classList.toggle('fa-bars');
+                menuIcon.classList.toggle('fa-xmark');
+            });
+        </script>
 
 </body>
 </html>
