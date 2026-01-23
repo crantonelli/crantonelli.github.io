@@ -55,7 +55,8 @@
 
         .slider-wrapper {
             position: relative;
-            height: 400px; /* Ajusta según prefieras */
+            height: 400px;
+            background-color: #eee; /* This helps you see if the container exists */
         }
 
         .slide {
@@ -162,11 +163,19 @@
             .nav-links.active { display: flex; }
 
             .Research-header h1 { font-size: 2rem; }
-            
-            .project-flex, .project-flex.reverse { flex-direction: column; gap: 30px; text-align: left; }
-            
-            .slider-wrapper, .project-gif { height: 300px; } /* Slightly shorter for mobile screens */
-            
+
+             .project-flex, .project-flex.reverse { flex-direction: column; gap: 30px; text-align: left; }
+
+            .project-detail {
+                    padding: 40px 0; /* Reduced padding for mobile */
+                }
+                .slider-wrapper .project-gif{height: 250px;  }
+                .slide {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover; /* Ensures image fills the 250px box without distorting */
+                }
+                              
             .footer-hero { background-attachment: scroll; }
             .contact-links { gap: 20px; }
             .social-icon { font-size: 30px; }
@@ -179,7 +188,7 @@
 
    <header>
         <nav class="container">
-            <div class="logo"><a href="index.html"><strong>CR</strong> Antonelli</div>
+            <div class="logo"><a href="index.html"><strong>CR</strong> Antonelli</a></div>
             
             <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
             
